@@ -10,16 +10,17 @@ function Register() {
       const [userdata, setUserData] = useState(false);
 
 
-     const onChangeName =(e)=>{setName({name:e.target.value});};
-     const onChangeUserName =(e)=>{setUserName({name:e.target.value});};
-     const onChangePassword =(e)=>{setPassword({name:e.target.value});};
-     const onChangeEmail =(e)=>{setEmail({name:e.target.value});};
+     const onChangeName =(e)=>{setName(e.target.value);};
+     const onChangeUserName =(e)=>{setUserName(e.target.value);};
+     const onChangePassword =(e)=>{setPassword(e.target.value);};
+     const onChangeEmail =(e)=>{setEmail(e.target.value);};
 
     const onSumbit=(e)=>{
       e.preventDefault();
       const userData={
         name:name,
         username:username,
+        password:password,
         email:email,
       };
       console.log(userData);
@@ -72,9 +73,9 @@ function Register() {
           </label>
           <br />
           <br />
-         
-        </form>
          <button type="submit">Submit</button>
+        </form>
+         
       </div>
 
 
@@ -84,5 +85,4 @@ function Register() {
     </>
   );
 }
-
 export default Register;

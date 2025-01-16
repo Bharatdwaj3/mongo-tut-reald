@@ -21,8 +21,9 @@ connectDB();
 
 app.post('/register',async(req,res)=>{
     const { name, username, email, password} = req.body;
-
-    if(!name||!email||!username||!password){
+    console.log("Received data:", req.body);
+    
+    if(!name || !email || !username || !password){
         return res.status(400).json({message: "All fields are required"});
     }
     try{
