@@ -26,7 +26,7 @@ function Register() {
       console.log(userData);
     
      axios
-      .post("http://localhost:5000/register", userData)
+      .post("http://localhost:8000/register", userData)
       .then((res) => {
         console.log(res.data);
         setName(name);

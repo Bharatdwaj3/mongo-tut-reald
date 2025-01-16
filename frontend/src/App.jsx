@@ -1,11 +1,11 @@
 import './App.css'
-import { Register } from './components/index'
+import { Log_out } from './components/index'
 function App() {
  
 
   return (
     <>
-      <Register/>
+      <Log_out/>
     </>
   )
 }

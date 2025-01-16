@@ -38,6 +38,51 @@ app.post('/register',async(req,res)=>{
     }
 
 });
+app.post('/log_in',async(req,res)=>{
+    const { name, username, email, password} = req.body;
+    console.log("Received data:", req.body);
+    
+
+    if(!username || !password){
+        return res.status(400).json({message: "All fields are required"});
+    }
+
+    try{
+        const user=await User.findOne({email});
+
+    if(!user){
+        return res.status(404).json({message:"Not found!!"});
+    }
+    res.status(200).json({message:"Login Success",user});
+    }catch(error){
+        console.error('Error loging in!!',error);
+        res.status(500).json({message:'Server error'});
+    }
+
+});
+app.post('/log_out',async(req,res)=>{
+    const { name, username, email, password} = req.body;
+    console.log("Received data:", req.body);
+    
+
+    if(!username || !password){
+        return res.status(400).json({message: "All fields are required"});
+    }
+
+    try{
+        const user=await User.findOne({email});
+
+    if(!user){
+        return res.status(404).json({message:"Not found!!"});
+    }
+    res.status(200).json({message:"Logout Success",user});
+    }catch(error){
+        console.error('Error loging in!!',error);
+        res.status(500).json({message:'Server error'});
+    }
+
+});
+
 
 app.listen(PORT,()=>{
     console.log(`Server is running on the PORT ${PORT}`);
